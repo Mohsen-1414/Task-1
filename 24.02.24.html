@@ -37,6 +37,19 @@
 
         // now we want to call this function and see what happens. 
         // I am just trying to create some more commits to try , nothing more !
+        
+        function onError(error){
+            console.log(`Error:${error}`);
+        }
+
+        function onSucess(data){
+            console.log(`Success: ${data}`);
+        }
+
+        getWeather()
+            .then(getWeatherIcon)
+            .then(onSucess, onError);
+
 
     </script>
 
