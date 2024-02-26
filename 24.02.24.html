@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // creating functions with promises to define the icon of wether 
+        function getWeather(){
+            return new Promise(function(resolve, reject){
+                setTimeout(()=>{
+                    resolve ('snow');
+                }, 100) 
+            })
+          
+        }
+
+        function getWeatherIcon(weather){
+            return new Promise(function(resolve, reject){
+                setTimeout(() => {
+                    switch(weather){
+                        case 'sunny':
+                            resolve ('😊')
+                        case 'rainy':
+                            resolve ('😒')
+                        case 'cloudy':
+                            resolve ('😁')
+                        default:
+                            reject ('No icon found')
+                    }
+                },100)
+            })
+        }
+
+
+
+    </script>
+
+</body>
+</html>
