@@ -53,13 +53,34 @@
                 }, 1500)
             })
         }
-        
+        /*
         walkDog()
             .then(value => {console.log(value); return goShopping()})
             .then(value => {console.log(value); return washCar()})
             .then(value => {console.log(value)});
-        
+        */
 
+        async function activity(){
+            try{
+                const firtsActivity = await walkDog();
+                console.log(firtsActivity);
+
+                const secondActivity = await goShopping();
+                console.log(secondActivity);
+
+                const thirdActivity = await washCar();
+                console.log(thirdActivity);
+
+                console.log('All is done');
+            }
+            catch(error){
+                console.error(error);
+            }
+
+        }
+
+        activity();
+        
         
         
     </script>
