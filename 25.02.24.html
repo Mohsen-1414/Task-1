@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // 3 different functions which must be done within different timelines. 
+        function walkDog(){
+            return new Promise(function(resolve, reject){
+                setTimeout(() =>{
+                    const walked = true;
+
+                    if (walked){
+                        resolve ('You realy walked the dog')
+                    }
+                    else{
+                        reject('you failed to walk the dog')
+                    }
+                },2000)
+            })
+        }
+
+        function goShopping(){
+            return new Promise(function(resolve, reject){
+                setTimeout(() =>{
+                    const shop = false;
+                    if (shop){
+                        resolve('Thanks, you went shopping')
+                    }
+                    else{
+                        reject('You failed again!')
+                    }
+                }, 3000)
+            })
+        }
+
+
+        function washCar(){
+            return new Promise(function(resolve, reject){
+                setTimeout(()=> {
+                    const wash = true;
+
+                    if (wash){
+                        resolve ('Thanks, you washed up')
+                    }
+                    else{
+                        reject('You failed to wash the car!!!!')
+                    }
+                }, 1500)
+            })
+        }
+        
+        walkDog()
+            .then(value => {console.log(value); return goShopping()})
+            .then(value => {console.log(value); return washCar()})
+            .then(value => {console.log(value)});
+        
+
+        
+        
+    </script>
+    
+</body>
+</html>
